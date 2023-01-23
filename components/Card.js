@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import tasks from "../db.json";
 
-export default function ToDo() {
+export default function Card() {
   return (
     <StyledUl>
       {tasks.map((task) => (
@@ -26,5 +26,5 @@ const StyledCard = styled.li`
 `;
 
 const StyledUl = styled.ul`
-  padding: 60px 0;
+  padding: 0;
 `;
