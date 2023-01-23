@@ -1,0 +1,14 @@
+[
+  {
+    "id": 0,
+    "task": "clean the kitchen"
+  },
+  {
+    "id": 1,
+    "task": "go grocery shopping"
+  },
+  {
+    "id": 2,
+    "task": "answer my colleague"
+  }
+]
