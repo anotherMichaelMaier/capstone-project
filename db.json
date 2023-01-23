@@ -1,19 +1,19 @@
 [
   {
     "id": 0,
-    "task": "clean the kitchen",
+    "name": "clean the kitchen",
     "note": "don't break stuff",
     "time": 30
   },
   {
     "id": 1,
-    "task": "go grocery shopping",
+    "name": "go grocery shopping",
     "note": "butter, apples, bread",
     "time": 40
   },
   {
     "id": 2,
-    "task": "answer my colleague",
+    "name": "answer my colleague",
     "note": "ask him why he called",
     "time": 10
   }
