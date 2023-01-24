@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { AddCircleEmpty } from "@/components/Icon.js";
 import { useState } from "react";
+import IconAdd from "@/public/add_circle_empty.svg";
 
 export default function AddCard({ createTask }) {
   const [toggle, setToggle] = useState(false);
@@ -22,7 +22,7 @@ export default function AddCard({ createTask }) {
   return (
     <StyledDiv>
       <button onClick={handleClick}>
-        <AddCircleEmpty />
+        <IconAdd />
       </button>
       {toggle ? (
         <StyledForm className="form" onSubmit={handleSubmit}>
