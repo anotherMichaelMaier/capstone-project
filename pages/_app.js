@@ -1,8 +1,21 @@
 import GlobalStyle from "@/styles";
 import Head from "next/head";
 import styled from "styled-components";
+import userTasks from "../db.json";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
+  const [tasks, setTasks] = useLocalStorageState("tasks", {
+    defaultValue: [...userTasks],
+  });
+  function createTask(newTask) {
+    setTasks((oldTasks) => [
+      {
+        ...newTask,
+      },
+      ...oldTasks,
+    ]);
+  }
   return (
     <>
       <GlobalStyle />
@@ -10,7 +23,7 @@ export default function App({ Component, pageProps }) {
         <title>Capstone Project</title>
       </Head>
       <StyledHeadline>ManageMe</StyledHeadline>
-      <Component {...pageProps} />
+      <Component {...pageProps} createTask={createTask} tasks={tasks} />
     </>
   );
 }

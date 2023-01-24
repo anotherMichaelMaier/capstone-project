@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import tasks from "../db.json";
 
-export default function Card() {
+export default function Card({ tasks }) {
   return (
     <StyledUl>
       {tasks.map((task) => (

@@ -1,9 +1,21 @@
 import styled from "styled-components";
 import { AddCircleEmpty } from "@/components/Icon.js";
 import { useState } from "react";
-export default function AddCard() {
+
+export default function AddCard({ createTask }) {
   const [toggle, setToggle] = useState(false);
   function handleClick() {
+    setToggle(!toggle);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    createTask(data);
+
+    event.target.reset();
     setToggle(!toggle);
   }
 
@@ -13,20 +25,22 @@ export default function AddCard() {
         <AddCircleEmpty />
       </button>
       {toggle ? (
-        <StyledForm className="form">
-          <label className="form__label" htmlFor="todo">
+        <StyledForm className="form" onSubmit={handleSubmit}>
+          <label className="form__label" htmlFor="name">
             new To-Do:
           </label>
-          <input className="form__input" id="todo" type="text" />
-          <label className="form__label" htmlFor="todo">
+          <input className="form__input" id="name" name="name" type="text" />
+          <label className="form__label" htmlFor="name">
             notes:
           </label>
-          <input className="form__input" id="todo" type="text" />
-          <label className="form__label" htmlFor="todo">
+          <textarea className="form__input" id="note" name="note" type="text" />
+          <label className="form__label" htmlFor="note">
             estimated time:
           </label>
-          <input className="form__input" id="todo" type="text" />
-          <button className="form__button">Add</button>
+          <input className="form__input" id="time" name="time" type="text" />
+          <button className="form__button" type="submit">
+            Add task to list
+          </button>
         </StyledForm>
       ) : (
         ""
@@ -37,7 +51,7 @@ export default function AddCard() {
 
 const StyledDiv = styled.div`
   border: solid blue;
-  margin-top: 90px;
+  margin: 90px 20px 20px 20px;
 `;
 
 const StyledForm = styled.form`
