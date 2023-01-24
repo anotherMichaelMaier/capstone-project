@@ -37,7 +37,7 @@ export default function AddCard({ createTask }) {
           <label htmlFor="note">notes:</label>
           <textarea id="note" name="note" type="text" pattern="^.{3,}[]" />
           <label htmlFor="time">estimated time:</label>
-          <input id="time" name="time" type="number" required />
+          <input id="time" name="time" type="number" max={999} required />
           <button type="submit">Add task to list</button>
         </StyledForm>
       ) : (
