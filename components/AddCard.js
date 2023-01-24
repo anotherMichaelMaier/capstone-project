@@ -29,7 +29,13 @@ export default function AddCard({ createTask }) {
           <label className="form__label" htmlFor="name">
             new To-Do:
           </label>
-          <input className="form__input" id="name" name="name" type="text" />
+          <input
+            className="form__input"
+            id="name"
+            name="name"
+            type="text"
+            required
+          />
           <label className="form__label" htmlFor="name">
             notes:
           </label>
@@ -37,7 +43,7 @@ export default function AddCard({ createTask }) {
           <label className="form__label" htmlFor="note">
             estimated time:
           </label>
-          <input className="form__input" id="time" name="time" type="text" />
+          <input className="form__input" id="time" name="time" type="number" />
           <button className="form__button" type="submit">
             Add task to list
           </button>
