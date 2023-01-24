@@ -31,13 +31,25 @@ export default function AddCard({ createTask }) {
             id="name"
             name="name"
             type="text"
-            pattern="^[a-zA-Z0-9][a-zA-Z0-9-_ .]{1,70}"
+            pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,70}"
             required
           />
           <label htmlFor="note">notes:</label>
-          <textarea id="note" name="note" type="text" pattern="^.{3,}[]" />
+          <textarea
+            id="note"
+            name="note"
+            type="text"
+            pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,1000}"
+          />
           <label htmlFor="time">estimated time:</label>
-          <input id="time" name="time" type="number" max={999} required />
+          <input
+            id="time"
+            name="time"
+            type="number"
+            min={1}
+            max={999}
+            required
+          />
           <button type="submit">Add task to list</button>
         </StyledForm>
       ) : (
