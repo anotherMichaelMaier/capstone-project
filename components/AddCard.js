@@ -34,16 +34,29 @@ export default function AddCard({ createTask }) {
             id="name"
             name="name"
             type="text"
+            pattern="^[a-zA-Z0-9][a-zA-Z0-9-_ .]{1,70}"
             required
           />
-          <label className="form__label" htmlFor="name">
+          <label className="form__label" htmlFor="note">
             notes:
           </label>
-          <textarea className="form__input" id="note" name="note" type="text" />
-          <label className="form__label" htmlFor="note">
+          <textarea
+            className="form__input"
+            id="note"
+            name="note"
+            type="text"
+            pattern="^.{3,}[]"
+          />
+          <label className="form__label" htmlFor="time">
             estimated time:
           </label>
-          <input className="form__input" id="time" name="time" type="number" />
+          <input
+            className="form__input"
+            id="time"
+            name="time"
+            type="number"
+            required
+          />
           <button className="form__button" type="submit">
             Add task to list
           </button>
@@ -58,6 +71,7 @@ export default function AddCard({ createTask }) {
 const StyledDiv = styled.div`
   border: solid blue;
   margin: 90px 20px 20px 20px;
+  width: 100%;
 `;
 
 const StyledForm = styled.form`

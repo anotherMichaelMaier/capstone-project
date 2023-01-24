@@ -22,6 +22,8 @@ const StyledCard = styled.li`
   text-align: center;
   list-style: none;
   margin: 20px 20px;
+  /* overflow: scroll; */
+  overflow-wrap: break-word;
 `;
 
 const StyledUl = styled.ul`
