@@ -25,41 +25,20 @@ export default function AddCard({ createTask }) {
         <IconAdd />
       </button>
       {toggle ? (
-        <StyledForm className="form" onSubmit={handleSubmit}>
-          <label className="form__label" htmlFor="name">
-            new To-Do:
-          </label>
+        <StyledForm onSubmit={handleSubmit}>
+          <label htmlFor="name">new To-Do:</label>
           <input
-            className="form__input"
             id="name"
             name="name"
             type="text"
             pattern="^[a-zA-Z0-9][a-zA-Z0-9-_ .]{1,70}"
             required
           />
-          <label className="form__label" htmlFor="note">
-            notes:
-          </label>
-          <textarea
-            className="form__input"
-            id="note"
-            name="note"
-            type="text"
-            pattern="^.{3,}[]"
-          />
-          <label className="form__label" htmlFor="time">
-            estimated time:
-          </label>
-          <input
-            className="form__input"
-            id="time"
-            name="time"
-            type="number"
-            required
-          />
-          <button className="form__button" type="submit">
-            Add task to list
-          </button>
+          <label htmlFor="note">notes:</label>
+          <textarea id="note" name="note" type="text" pattern="^.{3,}[]" />
+          <label htmlFor="time">estimated time:</label>
+          <input id="time" name="time" type="number" required />
+          <button type="submit">Add task to list</button>
         </StyledForm>
       ) : (
         ""
