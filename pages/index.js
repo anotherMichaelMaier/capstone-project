@@ -1,24 +1,12 @@
 import styled from "styled-components";
-import ToDoCard from "@/components/Card.js";
-export default function Homepage() {
+import Card from "@/components/Card.js";
+import AddCard from "@/components/AddCard";
+
+export default function Homepage({ tasks, createTask }) {
   return (
     <>
-      <header>
-        <StyledHeadline>ManageMe</StyledHeadline>
-      </header>
-      <main>
-        <ToDoCard />
-      </main>
+      <AddCard createTask={createTask} />
+      <Card tasks={tasks} />
     </>
   );
 }
-
-const StyledHeadline = styled.h1`
-  position: fixed;
-  top: 0;
-  text-align: center;
-  width: 100%;
-  background-color: grey;
-  padding: 20px;
-  margin: 0;
-`;
