@@ -3,9 +3,9 @@ import { useState } from "react";
 import IconAdd from "@/public/add_circle_empty.svg";
 
 export default function AddCard({ createTask }) {
-  const [toggle, setToggle] = useState(false);
+  const [toggleAddButton, setToggleAddButton] = useState(false);
   function handleClick() {
-    setToggle(!toggle);
+    setToggleAddButton(!toggleAddButton);
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -16,7 +16,7 @@ export default function AddCard({ createTask }) {
     createTask(data);
 
     event.target.reset();
-    setToggle(!toggle);
+    setToggleAddButton(!toggleAddButton);
   }
 
   return (
@@ -24,7 +24,7 @@ export default function AddCard({ createTask }) {
       <StyledButton onClick={handleClick}>
         <IconAdd />
       </StyledButton>
-      {toggle ? (
+      {toggleAddButton ? (
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor="name">new To-Do:</label>
           <input
