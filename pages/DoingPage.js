@@ -1,3 +1,9 @@
+import styled from "styled-components";
+
 export default function DoingPage() {
-  return <h1>Doing</h1>;
+  return <StyledHeading>Doing Page - work in progress</StyledHeading>;
 }
+
+const StyledHeading = styled.h1`
+  padding-top: 100px;
+`;

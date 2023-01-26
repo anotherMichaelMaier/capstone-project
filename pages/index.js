@@ -5,6 +5,7 @@ import AddCard from "@/components/AddCard";
 export default function HomePage({ tasks, createTask }) {
   return (
     <>
+      <StyledHeading>To-Do - work in progress</StyledHeading>
       <AddCard createTask={createTask} />
       <StyledUl>
         {tasks.map((tasks) => (
@@ -28,5 +29,9 @@ const StyledLi = styled.li`
 `;
 
 const StyledUl = styled.ul`
-  padding: 0;
+  padding: 0 0 40px 0;
+`;
+
+const StyledHeading = styled.h1`
+  padding-top: 100px;
 `;
