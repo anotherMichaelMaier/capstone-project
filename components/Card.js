@@ -8,11 +8,11 @@ export default function Card({ name, note, time }) {
   }
   return (
     <>
-      <h2>{name}</h2>
-      <button onClick={handleClick}>details</button>
+      <h1>{name}</h1>
+      <button onClick={handleClick}>show details</button>
       {toggleDetailsCard ? (
         <>
-          <h3>Notes:</h3>
+          <h2>Notes:</h2>
           <p>{note}</p>
           <h4>Estimated time:</h4>
           <p>{time} minutes</p>
