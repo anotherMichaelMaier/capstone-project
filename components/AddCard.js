@@ -21,9 +21,9 @@ export default function AddCard({ createTask }) {
 
   return (
     <StyledDiv>
-      <button onClick={handleClick}>
+      <StyledButton onClick={handleClick}>
         <IconAdd />
-      </button>
+      </StyledButton>
       {toggle ? (
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor="name">new To-Do:</label>
@@ -62,10 +62,14 @@ export default function AddCard({ createTask }) {
 const StyledDiv = styled.div`
   border: solid blue;
   margin: 90px 20px 20px 20px;
-  width: 100%;
 `;
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+`;
+
+const StyledButton = styled.button`
+  display: flex;
+  text-align: center;
 `;
