@@ -10,7 +10,7 @@ export default function HomePage({ tasks, createTask }) {
       <StyledUl>
         {tasks.map((tasks) => (
           <StyledLi key={tasks.id}>
-            <Card name={tasks.name} notes={tasks.note} time={tasks.time} />
+            <Card name={tasks.name} note={tasks.note} time={tasks.time} />
           </StyledLi>
         ))}
       </StyledUl>
