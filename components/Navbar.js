@@ -9,10 +9,10 @@ export default function Navbar() {
       <Link href="/">
         <TodoIcon />
       </Link>
-      <Link href="./Doingpage.js">
+      <Link href="/DoingPage">
         <ProgressionIcon />
       </Link>
-      <Link href="./Donepage.js">
+      <Link href="/DonePage">
         <DoneIcon />
       </Link>
     </StyledNavbar>
