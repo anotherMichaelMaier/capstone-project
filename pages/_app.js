@@ -4,7 +4,6 @@ import styled from "styled-components";
 import userTasks from "../db.json";
 import useLocalStorageState from "use-local-storage-state";
 import Navbar from "@/components/Navbar";
-import { v4 as uuidv4 } from "uuid";
 
 export default function App({ Component, pageProps }) {
   const [tasks, setTasks] = useLocalStorageState("tasks", {
@@ -14,7 +13,7 @@ export default function App({ Component, pageProps }) {
     setTasks((oldTasks) => [
       {
         ...newTask,
-        id: uuidv4(),
+        id: crypto.randomUUID(),
       },
       ...oldTasks,
     ]);
