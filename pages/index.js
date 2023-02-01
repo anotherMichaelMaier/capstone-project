@@ -3,14 +3,14 @@ import Card from "@/components/Card.js";
 import AddCard from "@/components/AddCard";
 
 export default function HomePage({ tasks, createTask }) {
+  const todoTasks = tasks.filter((task) => task.position === "todo");
   return (
     <>
-      <StyledHeading>To-Do - work in progress</StyledHeading>
       <AddCard createTask={createTask} />
       <StyledUl>
-        {tasks.map((tasks) => (
-          <StyledLi key={tasks.id}>
-            <Card name={tasks.name} note={tasks.note} time={tasks.time} />
+        {todoTasks.map((todo) => (
+          <StyledLi key={todo.id}>
+            <Card name={todo.name} note={todo.note} time={todo.time} />
           </StyledLi>
         ))}
       </StyledUl>
@@ -30,8 +30,4 @@ const StyledLi = styled.li`
 
 const StyledUl = styled.ul`
   padding: 0 0 40px 0;
-`;
-
-const StyledHeading = styled.h1`
-  padding-top: 100px;
 `;

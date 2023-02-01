@@ -4,6 +4,7 @@ import styled from "styled-components";
 import userTasks from "../db.json";
 import useLocalStorageState from "use-local-storage-state";
 import Navbar from "@/components/Navbar";
+import { requestToBodyStream } from "next/dist/server/body-streams";
 
 export default function App({ Component, pageProps }) {
   const [tasks, setTasks] = useLocalStorageState("tasks", {
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }) {
       {
         ...newTask,
         id: crypto.randomUUID(),
+        position: "todo",
       },
       ...oldTasks,
     ]);
