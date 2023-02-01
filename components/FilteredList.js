@@ -5,9 +5,13 @@ export default function FilteredList({ tasks, positionCheck }) {
   const filteredTasks = tasks.filter((task) => task.position === positionCheck);
   return (
     <StyledUl>
-      {filteredTasks.map((doing) => (
-        <StyledLi key={doing.id}>
-          <Card name={doing.name} note={doing.note} time={doing.time} />
+      {filteredTasks.map((mappedTask) => (
+        <StyledLi key={mappedTask.id}>
+          <Card
+            name={mappedTask.name}
+            note={mappedTask.note}
+            time={mappedTask.time}
+          />
         </StyledLi>
       ))}
     </StyledUl>
