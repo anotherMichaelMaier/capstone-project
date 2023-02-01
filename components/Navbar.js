@@ -4,7 +4,8 @@ import TodoIcon from "@/public/todoIcon.svg";
 import ProgressionIcon from "@/public/progressIcon.svg";
 import DoneIcon from "@/public/doneIcon.svg";
 import { useRouter } from "next/router";
-export default function Navbar() {
+
+const Navbar = () => {
   const router = useRouter();
   return (
     <StyledNav>
@@ -25,7 +26,8 @@ export default function Navbar() {
       </StyledLink>
     </StyledNav>
   );
-}
+};
+export default Navbar;
 
 const StyledNav = styled.nav`
   display: flex;
