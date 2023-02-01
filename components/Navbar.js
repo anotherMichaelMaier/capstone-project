@@ -5,21 +5,30 @@ import ProgressionIcon from "@/public/progressIcon.svg";
 import DoneIcon from "@/public/doneIcon.svg";
 export default function Navbar() {
   return (
-    <StyledNavbar>
-      <Link href="/">
+    <StyledNav>
+      <StyledLink
+        href="/"
+        className={location.pathname === "/" ? "active" : ""}
+      >
         <TodoIcon />
-      </Link>
-      <Link href="/doing-page">
+      </StyledLink>
+      <StyledLink
+        href="/doing-page"
+        className={location.pathname === "/doing-page" ? "active" : ""}
+      >
         <ProgressionIcon />
-      </Link>
-      <Link href="/done-page">
+      </StyledLink>
+      <StyledLink
+        href="/done-page"
+        className={location.pathname === "/done-page" ? "active" : ""}
+      >
         <DoneIcon />
-      </Link>
-    </StyledNavbar>
+      </StyledLink>
+    </StyledNav>
   );
 }
 
-const StyledNavbar = styled.nav`
+const StyledNav = styled.nav`
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -30,4 +39,11 @@ const StyledNavbar = styled.nav`
   background-color: grey;
   fill: white;
   stroke: black;
+`;
+
+const StyledLink = styled(Link)`
+  &.active {
+    fill: blue;
+    stroke: white;
+  }
 `;
