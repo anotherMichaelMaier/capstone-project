@@ -3,24 +3,23 @@ import Link from "next/link";
 import TodoIcon from "@/public/todoIcon.svg";
 import ProgressionIcon from "@/public/progressIcon.svg";
 import DoneIcon from "@/public/doneIcon.svg";
+import { useRouter } from "next/router";
 export default function Navbar() {
+  const router = useRouter();
   return (
     <StyledNav>
-      <StyledLink
-        href="/"
-        className={location.pathname === "/" ? "active" : ""}
-      >
+      <StyledLink href="/" className={router.pathname === "/" ? "active" : ""}>
         <TodoIcon />
       </StyledLink>
       <StyledLink
         href="/doing-page"
-        className={location.pathname === "/doing-page" ? "active" : ""}
+        className={router.pathname === "/doing-page" ? "active" : ""}
       >
         <ProgressionIcon />
       </StyledLink>
       <StyledLink
         href="/done-page"
-        className={location.pathname === "/done-page" ? "active" : ""}
+        className={router.pathname === "/done-page" ? "active" : ""}
       >
         <DoneIcon />
       </StyledLink>
