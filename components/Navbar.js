@@ -5,7 +5,7 @@ import ProgressionIcon from "@/public/progressIcon.svg";
 import DoneIcon from "@/public/doneIcon.svg";
 import { useRouter } from "next/router";
 
-const Navbar = () => {
+export default function Navbar() {
   const router = useRouter();
   return (
     <StyledNav>
@@ -26,8 +26,7 @@ const Navbar = () => {
       </StyledLink>
     </StyledNav>
   );
-};
-export default Navbar;
+}
 
 const StyledNav = styled.nav`
   display: flex;
