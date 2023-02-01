@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Card from "@/components/Card";
 
-export default function DoingPage({ tasks }) {
-  console.log(tasks);
+export default function donePage({ tasks }) {
   const doneTasks = tasks.filter((task) => task.position === "done");
 
   return (
