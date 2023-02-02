@@ -23,8 +23,7 @@ const StyledLi = styled.li`
   border-color: blue;
   text-align: center;
   list-style: none;
-  margin: 20px 20px;
-  /* overflow: scroll; */
+  margin: 20px;
   overflow-wrap: break-word;
 `;
 

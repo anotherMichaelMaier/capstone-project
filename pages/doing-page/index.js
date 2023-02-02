@@ -1,6 +1,6 @@
 import FilteredList from "@/components/FilteredList";
 
-export default function doingPage({ tasks }) {
+export default function DoingPage({ tasks }) {
   return (
     <>
       <FilteredList tasks={tasks} positionCheck="doing" />;
