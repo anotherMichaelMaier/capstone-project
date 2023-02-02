@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import FilteredList from "@/components/FilteredList";
 
-export default function DonePage() {
-  return <StyledHeading>Done Page - work in progress</StyledHeading>;
+export default function DonePage({ tasks }) {
+  return (
+    <>
+      <FilteredList tasks={tasks} positionCheck="done" />;
+    </>
+  );
 }
-
-const StyledHeading = styled.h1`
-  padding-top: 100px;
-`;

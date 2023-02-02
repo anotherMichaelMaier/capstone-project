@@ -4,27 +4,27 @@
     "name": "clean the kitchen",
     "note": "don't break stuff",
     "time": 30,
-    "status": "todo"
+    "position": "todo"
   },
   {
     "id": 1,
     "name": "go grocery shopping",
     "note": "butter, apples, bread",
     "time": 40,
-    "status": "doing"
+    "position": "doing"
   },
   {
     "id": 2,
     "name": "answer my colleague",
     "note": "ask him why he called",
     "time": 40,
-    "status": "done"
+    "position": "done"
   },
   {
     "id": 3,
-    "name": "go grocery shopping 2",
-    "note": "butter, apples, bread",
-    "time": 40,
-    "status": "doing"
+    "name": "read a book",
+    "note": "but read a good one",
+    "time": 45,
+    "position": "doing"
   }
 ]
