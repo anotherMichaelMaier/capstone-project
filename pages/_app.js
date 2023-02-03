@@ -5,7 +5,7 @@ import userTasks from "../db.json";
 import useLocalStorageState from "use-local-storage-state";
 import Navbar from "@/components/Navbar";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, state }) {
   const [tasks, setTasks] = useLocalStorageState("tasks", {
     defaultValue: [...userTasks],
   });

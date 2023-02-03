@@ -11,6 +11,7 @@ export default function FilteredList({ tasks, positionCheck }) {
             name={mappedTask.name}
             note={mappedTask.note}
             time={mappedTask.time}
+            position={mappedTask.position}
           />
         </StyledLi>
       ))}
