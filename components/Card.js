@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-export default function Card({ name, note, time, position }) {
+export default function Card({
+  name,
+  note,
+  time,
+  moveTaskToPreviousState,
+  moveTaskToNextState,
+  previousState,
+  nextState,
+}) {
   const [toggleDetailsCard, setToggleDetailsCard] = useState(true);
-  const [state, setState] = useState(position);
-  const possibleStates = ["todo", "doing", "done"];
-  const indexOfCurrentState = possibleStates.findIndex(
-    (possibleState) => possibleState === position
-  );
-  const previousState = possibleStates[indexOfCurrentState - 1];
-  const nextState = possibleStates[indexOfCurrentState + 1];
+
   function handleClick() {
     setToggleDetailsCard(!toggleDetailsCard);
   }
@@ -18,16 +20,14 @@ export default function Card({ name, note, time, position }) {
       <h2>{name}</h2>
       <div>
         {previousState && (
-          <button on Click={() => setState(previousState)}>
-            {previousState}
-          </button>
+          <button onClick={moveTaskToPreviousState}>{previousState}</button>
         )}
         <button onClick={handleClick}>
           {toggleDetailsCard ? "show details" : "hide details"}
         </button>
-        {nextState ? (
-          <button onClick={() => setState(nextState)}>{nextState}</button>
-        ) : null}
+        {nextState && (
+          <button onClick={moveTaskToNextState}>{nextState}</button>
+        )}
       </div>
       {toggleDetailsCard ? null : (
         <>
