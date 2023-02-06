@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import EditCard from "./EditCard";
 
 export default function Card({
   name,
