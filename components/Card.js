@@ -31,10 +31,10 @@ export default function Card({
       </div>
       {toggleDetailsCard ? null : (
         <>
-          <h2>Notes:</h2>
+          {note && <h2>Notes:</h2>}
           <p>{note}</p>
-          <h4>Estimated time:</h4>
-          <p>{time} minutes</p>
+          {time && <h4>Estimated time:</h4>}
+          {time && <p>{time} minutes</p>}
         </>
       )}
     </>

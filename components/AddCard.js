@@ -31,6 +31,7 @@ export default function AddCard({ createTask }) {
             id="name"
             name="name"
             type="text"
+            maxLength="70"
             pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,70}"
             required
           />
@@ -39,6 +40,7 @@ export default function AddCard({ createTask }) {
             id="note"
             name="note"
             type="text"
+            maxLength="500"
             pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,1000}"
           />
           <label htmlFor="time">estimated time:</label>
@@ -48,6 +50,7 @@ export default function AddCard({ createTask }) {
             type="number"
             min={1}
             max={999}
+            placeholder="time in minutes"
             required
           />
           <button type="submit">Add task to list</button>
