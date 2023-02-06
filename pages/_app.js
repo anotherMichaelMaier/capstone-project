@@ -5,7 +5,7 @@ import userTasks from "../db.json";
 import useLocalStorageState from "use-local-storage-state";
 import Navbar from "@/components/Navbar";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, state }) {
   const [tasks, setTasks] = useLocalStorageState("tasks", {
     defaultValue: [...userTasks],
   });
@@ -19,6 +19,18 @@ export default function App({ Component, pageProps }) {
       ...oldTasks,
     ]);
   }
+  function updateTask(taskId, updatedTask) {
+    setTasks((oldTasks) => {
+      const newTasks = oldTasks.map((oldTask) => {
+        if (oldTask.id === taskId) {
+          return updatedTask;
+        } else {
+          return oldTask;
+        }
+      });
+      return newTasks;
+    });
+  }
   return (
     <>
       <GlobalStyle />
@@ -26,7 +38,12 @@ export default function App({ Component, pageProps }) {
         <title>Capstone Project</title>
       </Head>
       <StyledHeadline>ManageMe</StyledHeadline>
-      <Component {...pageProps} createTask={createTask} tasks={tasks} />
+      <Component
+        {...pageProps}
+        createTask={createTask}
+        tasks={tasks}
+        updateTask={updateTask}
+      />
       <Navbar />
     </>
   );
