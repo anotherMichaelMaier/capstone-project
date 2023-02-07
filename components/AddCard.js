@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { useState } from "react";
+import CharacterCounter from "./CharacterCounter";
 import IconAdd from "@/public/add_circle_empty.svg";
 
 export default function AddCard({ createTask }) {
   const [toggleAddButton, setToggleAddButton] = useState(false);
+  const [countName, setCountName] = useState(0);
+  const [countNote, setCountNote] = useState(0);
   function handleClick() {
     setToggleAddButton(!toggleAddButton);
   }
@@ -14,7 +17,8 @@ export default function AddCard({ createTask }) {
     const data = Object.fromEntries(formData);
 
     createTask(data);
-
+    setCountName(0);
+    setCountNote(0);
     event.target.reset();
     setToggleAddButton(!toggleAddButton);
   }
@@ -31,18 +35,22 @@ export default function AddCard({ createTask }) {
             id="name"
             name="name"
             type="text"
-            maxLength="70"
+            maxLength="40"
             pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,70}"
+            onChange={(event) => setCountName(event.target.value.length)}
             required
           />
+          <CharacterCounter maxLength={40} counter={countName} />
           <label htmlFor="note">notes:</label>
           <textarea
             id="note"
             name="note"
             type="text"
-            maxLength="500"
+            maxLength="200"
             pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,1000}"
+            onChange={(event) => setCountNote(event.target.value.length)}
           />
+          <CharacterCounter maxLength={200} counter={countNote} />
           <label htmlFor="time">estimated time:</label>
           <input
             id="time"
@@ -53,6 +61,7 @@ export default function AddCard({ createTask }) {
             placeholder="time in minutes"
             required
           />
+
           <button type="submit">Add task to list</button>
         </StyledForm>
       ) : (
