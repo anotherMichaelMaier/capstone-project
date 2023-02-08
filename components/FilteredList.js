@@ -18,6 +18,9 @@ export default function FilteredList({ tasks, positionCheck, updateTask }) {
               name={mappedTask.name}
               note={mappedTask.note}
               time={mappedTask.time}
+              updateTask={updateTask}
+              tasks={tasks}
+              id={mappedTask.id}
               moveTaskToPreviousState={() =>
                 updateTask(mappedTask.id, {
                   ...mappedTask,

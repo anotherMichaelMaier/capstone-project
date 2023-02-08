@@ -1,18 +1,22 @@
 import styled from "styled-components";
 import { useState } from "react";
-import EditCard from "./EditCard";
+import ModalEditCard from "./ModalEditCard";
+import Modal from "./Modal";
 
 export default function Card({
+  id,
   name,
   note,
   time,
+  tasks,
+  updateTask,
   moveTaskToPreviousState,
   moveTaskToNextState,
   previousState,
   nextState,
 }) {
   const [toggleDetailsCard, setToggleDetailsCard] = useState(true);
-
+  const [showModal, setShowModal] = useState(false);
   function handleClick() {
     setToggleDetailsCard(!toggleDetailsCard);
   }
@@ -36,21 +40,21 @@ export default function Card({
           <p>{note}</p>
           {time && <h4>Estimated time:</h4>}
           {time && <p>{time} minutes</p>}
+          <div>
+            <button onClick={() => setShowModal(true)}>edit details</button>
+            <Modal onClose={() => setShowModal(false)} show={showModal}>
+              <ModalEditCard
+                id={id}
+                name={name}
+                note={note}
+                time={time}
+                tasks={tasks}
+                updateTask={updateTask}
+              />
+            </Modal>
+          </div>
         </>
       )}
     </>
   );
 }
-
-const StyledLi = styled.li`
-  border: solid;
-  border-color: blue;
-  text-align: center;
-  list-style: none;
-  margin: 20px 20px;
-  overflow-wrap: break-word;
-`;
-
-const StyledUl = styled.ul`
-  padding: 0 0 40px 0;
-`;

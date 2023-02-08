@@ -28,7 +28,7 @@ export default function AddCard({ createTask }) {
       <button onClick={handleClick}>
         <IconAdd />
       </button>
-      {toggleAddButton ? (
+      {toggleAddButton && (
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor="name">new To-Do:</label>
           <input
@@ -64,8 +64,6 @@ export default function AddCard({ createTask }) {
 
           <button type="submit">Add task to list</button>
         </StyledForm>
-      ) : (
-        ""
       )}
     </StyledDiv>
   );
