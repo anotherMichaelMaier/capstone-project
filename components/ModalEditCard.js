@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Modal from "./Modal";
 
 export default function ModalEditCard({
   name,
@@ -7,6 +8,8 @@ export default function ModalEditCard({
   id,
   tasks,
   updateTask,
+  showModal,
+  onClose,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,9 +25,11 @@ export default function ModalEditCard({
         });
       return task;
     });
+    onClose();
   }
   return (
-    <StyledDiv>
+    <Modal showModal={showModal} onClose={onClose}>
+      {/* <StyledDiv> */}
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="name">new To-Do:</label>
         <input
@@ -58,7 +63,8 @@ export default function ModalEditCard({
         />
         <button type="submit">Save changes</button>
       </StyledForm>
-    </StyledDiv>
+      {/* </StyledDiv> */}
+    </Modal>
   );
 }
 

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
-import ModalEditCard from "./ModalEditCard";
-import Modal from "./Modal";
+import dynamic from "next/dynamic";
 
+const ModalEditCard = dynamic(() => import("../components/ModalEditCard"));
 export default function Card({
   id,
   name,
@@ -42,16 +42,16 @@ export default function Card({
           {time && <p>{time} minutes</p>}
           <div>
             <button onClick={() => setShowModal(true)}>edit details</button>
-            <Modal onClose={() => setShowModal(false)} show={showModal}>
-              <ModalEditCard
-                id={id}
-                name={name}
-                note={note}
-                time={time}
-                tasks={tasks}
-                updateTask={updateTask}
-              />
-            </Modal>
+            <ModalEditCard
+              id={id}
+              name={name}
+              note={note}
+              time={time}
+              tasks={tasks}
+              updateTask={updateTask}
+              onClose={() => setShowModal(false)}
+              showModal={showModal}
+            />
           </div>
         </>
       )}

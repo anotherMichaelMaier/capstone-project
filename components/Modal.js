@@ -2,18 +2,12 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
-export default function Modal({ show, children, onClose }) {
-  const [isBrowser, setIsBrowser] = useState(false);
-
-  useEffect(() => {
-    setIsBrowser(true);
-  }, []);
-
+export default function Modal({ showModal, children, onClose }) {
   const handleCloseClick = (event) => {
     event.preventDefault();
     onClose();
   };
-  const modalContent = show && (
+  const modalContent = showModal && (
     <StyledModalOverlay>
       <StyledModal>
         <StyledModalHeader>
@@ -26,14 +20,10 @@ export default function Modal({ show, children, onClose }) {
     </StyledModalOverlay>
   );
 
-  if (isBrowser) {
-    return ReactDOM.createPortal(
-      modalContent,
-      document.getElementById("modal-root")
-    );
-  } else {
-    return null;
-  }
+  return ReactDOM.createPortal(
+    modalContent,
+    document.getElementById("modal-root")
+  );
 }
 
 const StyledModalBody = styled.div`
@@ -52,6 +42,8 @@ const StyledModal = styled.div`
   height: 600px;
   border-radius: 15px;
   padding: 15px;
+  border: solid blue;
+  margin: 90px 20px 20px 20px;
 `;
 const StyledModalOverlay = styled.div`
   position: fixed;
