@@ -1,27 +1,27 @@
 [
   {
-    "id": 0,
+    "id": "0",
     "name": "clean the kitchen",
     "note": "don't break stuff",
     "time": 20,
     "position": "todo"
   },
   {
-    "id": 1,
+    "id": "1",
     "name": "go grocery shopping",
     "note": "butter, apples, bread",
     "time": 40,
     "position": "doing"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "answer my colleague",
     "note": "ask him why he called",
     "time": 15,
     "position": "done"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "read a book",
     "note": "but read a good one",
     "time": 45,
