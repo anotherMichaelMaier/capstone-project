@@ -2,22 +2,9 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
-export default function Modal({ showModal, children, onClose }) {
-  const handleCloseClick = (event) => {
-    event.preventDefault();
-    onClose();
-  };
+export default function Modal({ showModal, children }) {
   const modalContent = showModal && (
-    <StyledModalOverlay>
-      <StyledModal>
-        <StyledModalHeader>
-          <a href="#" onClick={handleCloseClick}>
-            x
-          </a>
-        </StyledModalHeader>
-        <StyledModalBody>{children}</StyledModalBody>
-      </StyledModal>
-    </StyledModalOverlay>
+    <StyledModalOverlay>{children}</StyledModalOverlay>
   );
 
   return ReactDOM.createPortal(
@@ -25,26 +12,6 @@ export default function Modal({ showModal, children, onClose }) {
     document.getElementById("modal-root")
   );
 }
-
-const StyledModalBody = styled.div`
-  padding-top: 10px;
-`;
-
-const StyledModalHeader = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  font-size: 25px;
-`;
-
-const StyledModal = styled.div`
-  background: white;
-  width: 500px;
-  height: 600px;
-  border-radius: 15px;
-  padding: 15px;
-  border: solid blue;
-  margin: 90px 20px 20px 20px;
-`;
 const StyledModalOverlay = styled.div`
   position: fixed;
   top: 0;

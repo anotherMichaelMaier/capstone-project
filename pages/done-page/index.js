@@ -1,7 +1,18 @@
 import FilteredList from "@/components/FilteredList";
 
-export default function DonePage({ tasks, updateTask }) {
+export default function DonePage({
+  tasks,
+  setTasks,
+  updateTask,
+  handleDelete,
+}) {
   return (
-    <FilteredList tasks={tasks} updateTask={updateTask} positionCheck="done" />
+    <FilteredList
+      tasks={tasks}
+      setTasks={setTasks}
+      updateTask={updateTask}
+      positionCheck="done"
+      handleDelete={handleDelete}
+    />
   );
 }

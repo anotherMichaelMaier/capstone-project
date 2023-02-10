@@ -5,7 +5,7 @@ import userTasks from "../db.json";
 import useLocalStorageState from "use-local-storage-state";
 import Navbar from "@/components/Navbar";
 
-export default function App({ Component, pageProps, state }) {
+export default function App({ Component, pageProps }) {
   const [tasks, setTasks] = useLocalStorageState("tasks", {
     defaultValue: [...userTasks],
   });
@@ -31,6 +31,10 @@ export default function App({ Component, pageProps, state }) {
       return newTasks;
     });
   }
+  function handleDelete(taskId) {
+    setTasks((oldTasks) => oldTasks.filter((task) => task.id !== taskId));
+    console.log(taskId);
+  }
   return (
     <>
       <GlobalStyle />
@@ -43,6 +47,8 @@ export default function App({ Component, pageProps, state }) {
         createTask={createTask}
         tasks={tasks}
         updateTask={updateTask}
+        handleDelete={handleDelete}
+        setTasks={setTasks}
       />
       <Navbar />
     </>

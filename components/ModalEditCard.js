@@ -7,15 +7,16 @@ export default function ModalEditCard({
   time,
   id,
   tasks,
+  setTasks,
   updateTask,
-  showModal,
-  onClose,
+  showModalEdit,
+  handleClose,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const mappedTasks = tasks.map((task) => {
+    setTasks = tasks.map((task) => {
       if (task.id === id)
         updateTask(id, {
           ...task,
@@ -25,11 +26,10 @@ export default function ModalEditCard({
         });
       return task;
     });
-    onClose();
+    handleClose();
   }
   return (
-    <Modal showModal={showModal} onClose={onClose}>
-      {/* <StyledDiv> */}
+    <Modal showModal={showModalEdit}>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="name">new To-Do:</label>
         <input
@@ -61,17 +61,14 @@ export default function ModalEditCard({
           defaultValue={time}
           required
         />
+        <button type="button" onClick={handleClose}>
+          Cancel
+        </button>
         <button type="submit">Save changes</button>
       </StyledForm>
-      {/* </StyledDiv> */}
     </Modal>
   );
 }
-
-const StyledDiv = styled.div`
-  border: solid blue;
-  margin: 90px 20px 20px 20px;
-`;
 
 const StyledForm = styled.form`
   display: flex;

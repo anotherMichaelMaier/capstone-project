@@ -2,27 +2,45 @@ import styled from "styled-components";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
-const ModalEditCard = dynamic(() => import("../components/ModalEditCard"));
+const ModalEditCard = dynamic(() => import("../components/ModalEditCard"), {
+  ssr: false,
+});
+const ModalDeleteTask = dynamic(() => import("../components/ModalDeleteTask"), {
+  ssr: false,
+});
+
 export default function Card({
   id,
   name,
   note,
   time,
   tasks,
+  setTasks,
   updateTask,
+  handleDelete,
   moveTaskToPreviousState,
   moveTaskToNextState,
   previousState,
   nextState,
 }) {
   const [toggleDetailsCard, setToggleDetailsCard] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState(false);
+  const [showModalDelete, setShowModalDelete] = useState(false);
+
   function handleClick() {
     setToggleDetailsCard(!toggleDetailsCard);
   }
   return (
     <>
       <h2>{name}</h2>
+      <button onClick={() => setShowModalDelete(true)}>X</button>
+      <ModalDeleteTask
+        showModalDelete={showModalDelete}
+        handleDelete={handleDelete}
+        handleClose={() => {
+          setShowModalDelete(false);
+        }}
+      />
       <div>
         {previousState && (
           <button onClick={moveTaskToPreviousState}>{previousState}</button>
@@ -41,16 +59,17 @@ export default function Card({
           {time && <h4>Estimated time:</h4>}
           {time && <p>{time} minutes</p>}
           <div>
-            <button onClick={() => setShowModal(true)}>edit details</button>
+            <button onClick={() => setShowModalEdit(true)}>edit details</button>
             <ModalEditCard
               id={id}
               name={name}
               note={note}
               time={time}
               tasks={tasks}
+              setTasks={setTasks}
               updateTask={updateTask}
-              onClose={() => setShowModal(false)}
-              showModal={showModal}
+              handleClose={() => setShowModalEdit(false)}
+              showModalEdit={showModalEdit}
             />
           </div>
         </>

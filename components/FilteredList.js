@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import Card from "@/components/Card";
 
-export default function FilteredList({ tasks, positionCheck, updateTask }) {
+export default function FilteredList({
+  tasks,
+  setTasks,
+  positionCheck,
+  updateTask,
+  handleDelete,
+}) {
   const filteredTasks = tasks.filter((task) => task.position === positionCheck);
   return (
     <StyledUl>
@@ -20,7 +26,9 @@ export default function FilteredList({ tasks, positionCheck, updateTask }) {
               time={mappedTask.time}
               updateTask={updateTask}
               tasks={tasks}
+              setTasks={setTasks}
               id={mappedTask.id}
+              handleDelete={() => handleDelete(mappedTask.id)}
               moveTaskToPreviousState={() =>
                 updateTask(mappedTask.id, {
                   ...mappedTask,
