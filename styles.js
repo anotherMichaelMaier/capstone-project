@@ -8,7 +8,6 @@ export default createGlobalStyle`
   --color-lightblue: #38b6ff;
   --color-royalblue: #5271ff;
   --color-cobaltblue: #004aad;
-  --color-red: #D9004C;
   --color-creamwhite: white;
   --color-lightgrey: #d3d3d3;
 }
@@ -22,6 +21,6 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${montserratfont.style.fontFamily};
-    background-color: var(--color-creamwhite);
+  
   }
 `;

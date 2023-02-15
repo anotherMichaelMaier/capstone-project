@@ -30,9 +30,9 @@ export default function AddCard({ createTask }) {
       </StyledAddButton>
       {toggleAddButton && (
         <StyledForm onSubmit={handleSubmit}>
-          <StyledInput>
+          <StyledInputDiv>
             <label htmlFor="name">task:</label>
-            <input
+            <StyledInput
               id="name"
               name="name"
               type="text"
@@ -42,10 +42,10 @@ export default function AddCard({ createTask }) {
               required
             />
             <CharacterCounter maxLength={40} counter={countName} />
-          </StyledInput>
-          <StyledInput>
+          </StyledInputDiv>
+          <StyledInputDiv>
             <label htmlFor="note">notes:</label>
-            <textarea
+            <StyledTextArea
               id="note"
               name="note"
               type="text"
@@ -55,10 +55,10 @@ export default function AddCard({ createTask }) {
               onChange={(event) => setCountNote(event.target.value.length)}
             />
             <CharacterCounter maxLength={200} counter={countNote} />
-          </StyledInput>
-          <StyledInput>
+          </StyledInputDiv>
+          <StyledInputDiv>
             <label htmlFor="time">estimated time effort:</label>
-            <input
+            <StyledInput
               id="time"
               name="time"
               type="number"
@@ -67,21 +67,13 @@ export default function AddCard({ createTask }) {
               placeholder="time in minutes"
               required
             />
-          </StyledInput>
-          <StyledSubmitButton type="submit">Submit task</StyledSubmitButton>
+          </StyledInputDiv>
+          <StyledSubmitButton type="submit">submit task</StyledSubmitButton>
         </StyledForm>
       )}
     </StyledFormCard>
   );
 }
-
-// const StyledDiv = styled.div`
-//   border: solid var(--color-royalblue);
-//   text-align: center;
-//   list-style: none;
-//   overflow-wrap: break-word;
-//   width: 90%;
-// `;
 
 const StyledForm = styled.form`
   display: flex;
@@ -89,6 +81,18 @@ const StyledForm = styled.form`
   text-align: left;
   align-items: center;
   color: var(--color-creamwhite);
+`;
+
+const StyledInput = styled.input`
+  border: solid black;
+  :focus {
+    outline-color: var(--color-lightblue);
+  }
+`;
+
+const StyledTextArea = styled.textarea`
+  border: solid black;
+  outline-color: var(--color-lightblue);
 `;
 
 const StyledFormCard = styled.div`
@@ -102,9 +106,13 @@ const StyledFormCard = styled.div`
 `;
 
 const StyledAddButton = styled.button`
-  background-color: transparent;
+  padding: 2px 2px 0 2px;
+  margin: 2px;
+  text-decoration: none;
+  border-radius: 1rem;
+  background-color: var(--color-creamwhite);
   border: transparent;
-  fill: var(--color-creamwhite);
+  fill: black;
 `;
 
 const StyledSubmitButton = styled.button`
@@ -121,7 +129,7 @@ const StyledSubmitButton = styled.button`
   margin-bottom: 10px;
 `;
 
-const StyledInput = styled.div`
+const StyledInputDiv = styled.div`
   display: flex;
   flex-direction: column;
   font-size: medium;

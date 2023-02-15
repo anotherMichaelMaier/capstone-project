@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import Modal from "./Modal";
-import { useState } from "react";
-import CharacterCounter from "./CharacterCounter";
 
 export default function ModalEditCard({
   name,
@@ -14,9 +12,6 @@ export default function ModalEditCard({
   showModalEdit,
   handleClose,
 }) {
-  const [countName, setCountName] = useState(0);
-  const [countNote, setCountNote] = useState(0);
-
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -32,16 +27,14 @@ export default function ModalEditCard({
       return task;
     });
     handleClose();
-    setCountName(0);
-    setCountNote(0);
   }
   return (
     <Modal showModal={showModalEdit}>
       <ModalWrapper>
         <StyledForm onSubmit={handleSubmit}>
-          <StyledInput>
+          <StyledInputDiv>
             <label htmlFor="name">new to-do:</label>
-            <input
+            <StyledInput
               id="name"
               name="name"
               type="text"
@@ -50,9 +43,8 @@ export default function ModalEditCard({
               defaultValue={name}
               required
             />
-            <CharacterCounter maxLength={40} counter={countName} />
-          </StyledInput>
-          <StyledInput>
+          </StyledInputDiv>
+          <StyledInputDiv>
             <label htmlFor="note">notes:</label>
             <StyledTextArea
               id="note"
@@ -63,11 +55,10 @@ export default function ModalEditCard({
               pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,1000}"
               defaultValue={note}
             />
-            <CharacterCounter maxLength={200} counter={countNote} />
-          </StyledInput>
-          <StyledInput>
-            <label htmlFor="time">estimated time:</label>
-            <input
+          </StyledInputDiv>
+          <StyledInputDiv>
+            <label htmlFor="time">estimated time effort:</label>
+            <StyledInput
               id="time"
               name="time"
               type="number"
@@ -77,7 +68,7 @@ export default function ModalEditCard({
               defaultValue={time}
               required
             />
-          </StyledInput>
+          </StyledInputDiv>
           <StyledDiv>
             <StyledButton type="button" onClick={handleClose}>
               cancel
@@ -129,7 +120,7 @@ const StyledDiv = styled.div`
   justify-content: space-around;
 `;
 
-const StyledInput = styled.div`
+const StyledInputDiv = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--color-creamwhite);
@@ -141,5 +132,14 @@ const StyledInput = styled.div`
 `;
 
 const StyledTextArea = styled.textarea`
+  border: solid black;
+  outline-color: var(--color-lightblue);
   resize: none;
+`;
+
+const StyledInput = styled.input`
+  border: solid black;
+  :focus {
+    outline-color: var(--color-lightblue);
+  }
 `;

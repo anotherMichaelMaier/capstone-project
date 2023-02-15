@@ -69,11 +69,11 @@ export default function Card({
         <>
           <StyledDetails>
             <StyledInput>
-              {note && <StyledH>Notes:</StyledH>}
+              {note && <StyledH>notes:</StyledH>}
               <StyledP>{note}</StyledP>
             </StyledInput>
             <StyledInput>
-              {time && <StyledH>Estimated time:</StyledH>}
+              {time && <StyledH>estimated time:</StyledH>}
               {time && <StyledP>{time} minutes</StyledP>}
             </StyledInput>
           </StyledDetails>
@@ -188,6 +188,7 @@ const StyledInput = styled.div`
   display: flex;
   flex-direction: column;
   font-size: medium;
+  gap: 10px;
   border-radius: 8px;
   align-items: center;
   margin-bottom: 20px;
@@ -199,10 +200,11 @@ const StyledInput = styled.div`
 const StyledH2 = styled.h2`
   width: 80%;
   text-align: center;
+  font-size: large;
 `;
 
 const DoneTaskStyle = styled.div`
   text-decoration: line-through;
   text-decoration-color: black;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 3px;
 `;

@@ -62,4 +62,5 @@ const StyledP = styled.p`
   border-radius: 8px;
   text-align: center;
   margin: 10px 10px;
+  border: solid black;
 `;

@@ -36,7 +36,7 @@ const StyledNav = styled.nav`
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: lightgrey;
+  background-color: white;
   z-index: 1;
   box-shadow: 10px 10px 10px 15px grey;
   border-top: solid black;

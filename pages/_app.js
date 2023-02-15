@@ -64,7 +64,7 @@ const StyledHeadline = styled.h1`
   text-align: center;
   padding: 10px 0 0 0;
   margin: 0;
-  background-color: lightgrey;
+  background-color: white;
   box-shadow: 3px 3px 3px 2px grey;
   z-index: 1;
   border-bottom: solid black;
