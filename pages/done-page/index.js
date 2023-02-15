@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import FilteredList from "@/components/FilteredList";
 
 export default function DonePage({
@@ -7,12 +8,18 @@ export default function DonePage({
   handleDelete,
 }) {
   return (
-    <FilteredList
-      tasks={tasks}
-      setTasks={setTasks}
-      updateTask={updateTask}
-      positionCheck="done"
-      handleDelete={handleDelete}
-    />
+    <Wrapper>
+      <FilteredList
+        tasks={tasks}
+        setTasks={setTasks}
+        updateTask={updateTask}
+        positionCheck="done"
+        handleDelete={handleDelete}
+      />
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  margin: 10px 20px;
+`;
