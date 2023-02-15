@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import DeleteTask from "@/public/icons/DeleteTask.svg";
+import DeleteTask from "@/public/icons/deleteTask.svg";
 
 const ModalEditCard = dynamic(() => import("../components/ModalEditCard"), {
   ssr: false,
