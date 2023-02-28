@@ -1,4 +1,8 @@
+<div>
 <img src="./public/logo/Logo.svg"
+</div>
+
+---
 
 
 # Manage Me
