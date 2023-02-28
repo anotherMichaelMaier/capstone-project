@@ -1,6 +1,5 @@
-<div align="center">
-  <img src="./public/logo/Logo.svg"
-</div>
+<img src="./public/logo/Logo.svg"
+
 
 # Manage Me
 
