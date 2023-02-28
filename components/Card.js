@@ -33,14 +33,14 @@ export default function Card({
   }
   return (
     <StyledCard>
-      <StyledH2>
+      <StyledTaskName>
         {previousState === "doing" ? (
           <DoneTaskStyle>{name}</DoneTaskStyle>
         ) : (
           <>{name}</>
         )}
-      </StyledH2>
-      <StyledDeleteButton onClick={() => setShowModalDelete(true)}>
+      </StyledTaskName>
+      <StyledDeleteButton onClick={() => setShowModalDelete(true)} aria-label="Delete button">
         <DeleteTask />
       </StyledDeleteButton>
       <ModalDeleteTask
@@ -68,14 +68,14 @@ export default function Card({
       {toggleDetailsCard ? null : (
         <>
           <StyledDetails>
-            <StyledInput>
-              {note && <StyledH>notes:</StyledH>}
-              <StyledP>{note}</StyledP>
-            </StyledInput>
-            <StyledInput>
-              {time && <StyledH>estimated time:</StyledH>}
-              {time && <StyledP>{time} minutes</StyledP>}
-            </StyledInput>
+            <StyledConainer>
+              {note && <StyledCategories>notes:</StyledCategories>}
+              <StyledCategoriesText>{note}</StyledCategoriesText>
+            </StyledConainer>
+            <StyledConainer>
+              {time && <StyledCategories>estimated time:</StyledCategories>}
+              {time && <StyledCategoriesText>{time} minutes</StyledCategoriesText>}
+            </StyledConainer>
           </StyledDetails>
           <StyledButton onClick={() => setShowModalEdit(true)}>
             edit details
@@ -173,18 +173,17 @@ const StyledButton = styled.button`
   margin-bottom: 10px;
 `;
 
-const StyledP = styled.p`
-  font-size: medium;
+const StyledCategoriesText = styled.p`
   width: 80%;
   margin: 0 0 10px 0;
 `;
 
-const StyledH = styled.h2`
+const StyledCategories = styled.h2`
   font-size: medium;
   margin: 0;
 `;
 
-const StyledInput = styled.div`
+const StyledConainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: medium;
@@ -197,7 +196,7 @@ const StyledInput = styled.div`
   }
 `;
 
-const StyledH2 = styled.h2`
+const StyledTaskName = styled.h2`
   width: 80%;
   text-align: center;
   font-size: large;

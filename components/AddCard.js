@@ -37,7 +37,7 @@ export default function AddCard({ createTask }) {
               name="name"
               type="text"
               maxLength="40"
-              pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,70}"
+              pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,40}"
               onChange={(event) => setCountName(event.target.value.length)}
               required
             />
@@ -51,7 +51,7 @@ export default function AddCard({ createTask }) {
               type="text"
               rows="5"
               maxLength="200"
-              pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,1000}"
+              pattern="^[a-zA-Z0-9äüöÄÜÖ][a-zA-Z0-9-_ äüöÄÜÖ.]{1,200}"
               onChange={(event) => setCountNote(event.target.value.length)}
             />
             <CharacterCounter maxLength={200} counter={countNote} />

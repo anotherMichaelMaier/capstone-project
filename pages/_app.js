@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>Capstone Project</title>
       </Head>
-      <StyledHeadline>
+      <StyledHeadline aria-label="Headline Manage Me App">
         <Logo />
       </StyledHeadline>
       <Component
