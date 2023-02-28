@@ -1,6 +1,7 @@
 <div align="center">
   <img src="./public/logo/Logo.svg"
 </div>
+
 # Manage Me
 
 ## Capstone-project made for the web development bootcamp @ neueFische
