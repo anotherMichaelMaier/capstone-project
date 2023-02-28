@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Link from "next/link";
-import TodoIcon from "@/public/todoIcon.svg";
-import ProgressionIcon from "@/public/progressIcon.svg";
-import DoneIcon from "@/public/doneIcon.svg";
+import TodoIcon from "@/public/icons/todoIcon.svg";
+import DoingIcon from "@/public/icons/doingIcon.svg";
+import DoneIcon from "@/public/icons/doneIcon.svg";
 import { useRouter } from "next/router";
 
 export default function Navbar() {
@@ -16,7 +16,7 @@ export default function Navbar() {
         href="/doing-page"
         className={router.pathname === "/doing-page" ? "active" : ""}
       >
-        <ProgressionIcon />
+        <DoingIcon />
       </StyledLink>
       <StyledLink
         href="/done-page"
@@ -32,18 +32,25 @@ const StyledNav = styled.nav`
   display: flex;
   flex-direction: row;
   text-align: center;
+  justify-content: space-around;
   position: fixed;
   bottom: 0;
   width: 100%;
-  justify-content: space-around;
-  background-color: grey;
-  fill: white;
-  stroke: black;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 10px 10px 10px 15px grey;
+  border-top: solid black;
 `;
 
 const StyledLink = styled(Link)`
+  padding: 2px;
+  margin: 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 1rem;
   &.active {
-    fill: blue;
-    stroke: white;
+    background-color: var(--color-royalblue);
+    fill: var(--color-creamwhite);
   }
 `;

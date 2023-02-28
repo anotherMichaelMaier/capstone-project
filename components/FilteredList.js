@@ -12,7 +12,7 @@ export default function FilteredList({
   return (
     <StyledUl>
       {filteredTasks.map((mappedTask) => {
-        const possibleStates = ["todo", "doing", "done"];
+        const possibleStates = ["to-do", "doing", "done"];
         const indexOfCurrentState = possibleStates.findIndex(
           (possibleState) => possibleState === mappedTask.position
         );
@@ -52,14 +52,17 @@ export default function FilteredList({
 }
 
 const StyledLi = styled.li`
-  border: solid;
-  border-color: blue;
-  text-align: center;
-  list-style: none;
-  margin: 20px;
-  overflow-wrap: break-word;
+  border: solid black;
+  background-color: var(--color-royalblue);
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px 0.5px grey;
 `;
 
 const StyledUl = styled.ul`
-  padding: 60px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  word-break: break-word;
+  gap: 30px;
+  padding: 15px 15px 70px 15px;
 `;

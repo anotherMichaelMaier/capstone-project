@@ -3,6 +3,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import userTasks from "../db.json";
 import useLocalStorageState from "use-local-storage-state";
+import Logo from "@/public/logo/Logo.svg";
 import Navbar from "@/components/Navbar";
 
 export default function App({ Component, pageProps }) {
@@ -14,7 +15,7 @@ export default function App({ Component, pageProps }) {
       {
         ...newTask,
         id: crypto.randomUUID(),
-        position: "todo",
+        position: "to-do",
       },
       ...oldTasks,
     ]);
@@ -41,7 +42,9 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>Capstone Project</title>
       </Head>
-      <StyledHeadline>ManageMe</StyledHeadline>
+      <StyledHeadline aria-label="Headline Manage Me App">
+        <Logo />
+      </StyledHeadline>
       <Component
         {...pageProps}
         createTask={createTask}
@@ -56,12 +59,13 @@ export default function App({ Component, pageProps }) {
 }
 
 const StyledHeadline = styled.h1`
-  position: fixed;
+  position: sticky;
   top: 0;
   text-align: center;
-  width: 100%;
-  background-color: grey;
-  padding: 20px;
+  padding: 10px 0 0 0;
   margin: 0;
-  color: white;
+  background-color: white;
+  box-shadow: 3px 3px 3px 2px grey;
+  z-index: 1;
+  border-bottom: solid black;
 `;
