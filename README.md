@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="./public/logo/ogo.svg"
-     height="40px"/>
+  <img src="./public/logo/Logo.svg"
 </div>
 # Manage Me
 
